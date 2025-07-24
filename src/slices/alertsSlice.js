@@ -5,16 +5,21 @@ const alertsSlice = createSlice({
     name: 'alerts',
     initialState: {
         list: [],
+        hasAlerts: false,
     },
     reducers: {
         setAlerts: (state, action) => {
-            const newAlerts = action.payload;
-            if (!arraysEqual(state.list, newAlerts)) {
-                state.list = newAlerts;
+            const incoming = [...action.payload].sort();
+            if (!arraysEqual(state.list, incoming)) {
+                state.list = incoming;
+                state.hasAlerts = incoming.length > 0;
             }
         },
         clearAlerts: (state) => {
-            state.list = [];
+            if (state.list.length > 0) {
+                state.list = [];
+                state.hasAlerts = false;
+            }
         },
     },
 });

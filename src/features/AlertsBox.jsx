@@ -1,11 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import AlertsList from './AlertsList';
 import globalStyles from '../styles/global.module.css';
 import styles from '../styles/AlertsBox.module.css';
 
 function AlertsBox() {
+  const hasAlerts = useSelector(state => state.alerts.hasAlerts);
   const alerts = useSelector(state => state.alerts.list);
-  const hasAlerts = alerts.length > 0;
   const boxClass = `${styles.alertBox} ${globalStyles.fade} ${hasAlerts ? globalStyles.visible : globalStyles.hidden}`;
 
   if (!hasAlerts) return null;
@@ -13,9 +14,7 @@ function AlertsBox() {
   return (
     <div className={boxClass}>
       <strong>Alerts:</strong>
-      <ul>
-        {alerts.map((alert) => <li key={alert}>{alert}</li>)}
-      </ul>
+      <AlertsList alerts={alerts} />
     </div>
   );
 }
