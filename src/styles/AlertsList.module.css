@@ -1,0 +1,59 @@
+.list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+
+    border-left: 4px solid var(--alert-color);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+
+    animation: slideFade 0.3s ease-in;
+}
+
+.icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+    color: var(--icon-color);
+}
+
+/* Types of alerts */
+.high {
+    background-color: var(--alert-high-bg);
+    color: var(--alert-high-text);
+    --icon-color: #ed1b24;
+}
+
+.low {
+    background-color: var(--alert-low-bg);
+    color: var(--alert-low-text);
+    --icon-color: #1b5aed;
+}
+
+.normal {
+    background-color: var(--alert-normal-bg);
+    color: var(--alert-normal-text);
+    --icon-color: #333;
+}
+
+/* Animation */
+@keyframes slideFade {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
