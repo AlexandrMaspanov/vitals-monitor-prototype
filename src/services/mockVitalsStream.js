@@ -1,5 +1,5 @@
 import { updateVitals } from "../slices/vitalsSlice";
-import store from '../app/store';
+import { store } from '../app/store';
 
 // Random vitals generation
 function generateVitals() {
