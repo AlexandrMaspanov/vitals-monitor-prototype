@@ -1,19 +1,30 @@
 import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { startVitalsMockStream } from './services/mockVitalsStream';
-import AlertsBox from './features/AlertsBox';
+import { checkVitalsStatus } from './utils/alertsThresholds';
+import { setAlerts } from './slices/alertsSlice';
 import VitalsDashboard from './features/VitalsDashboard';
-import './App.css';
+import AlertsBox from './features/AlertsBox';
+// import './App.css';
 
 function App() {
+  const vitals = useSelector(state => state.vitals);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     startVitalsMockStream();
   }, []);
 
+  useEffect(() => {
+    const alerts = checkVitalsStatus(vitals);
+    dispatch(setAlerts(alerts));
+  }, [vitals]);
+
   return (
     <>
       <h1>Vitals Monitor</h1>
-      <AlertsBox />
       <VitalsDashboard />
+      <AlertsBox />
     </>
   );
 }

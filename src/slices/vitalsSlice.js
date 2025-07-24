@@ -18,7 +18,7 @@ const vitalsSlice = createSlice({
             state.pulse = pulse;
             state.timestamp = timestamp;
         }
-    }
+    },
 });
 
 export const { updateVitals } = vitalsSlice.actions;

@@ -1,0 +1,6 @@
+:root {
+    --alert-padding: 1rem;
+    --alert-radius: 0.5rem;
+    --color-alert-bg: #f44336;
+    --color-alert-text: #ffffff;
+}

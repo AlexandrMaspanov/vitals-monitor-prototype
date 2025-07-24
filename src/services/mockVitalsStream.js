@@ -1,12 +1,14 @@
 import { updateVitals } from "../slices/vitalsSlice";
 import { store } from '../app/store';
+import { getRandomInt } from "../utils/getRandomInt";
+import THRESHOLDS from '../constants/thresholds';
 
 // Random vitals generation
 function generateVitals() {
-    const heartRate = Math.floor(Math.random() * 40) + 60; // 60-100
-    const pulse = Math.floor(Math.random() * 40) + 60; // 60-100
-    const systolic = Math.floor(Math.random() * 30) + 120; // 120-150
-    const diastolic = Math.floor(Math.random() * 20) + 80; // 80-100
+    const heartRate = getRandomInt(THRESHOLDS.heartRate.min - 10, THRESHOLDS.heartRate.max + 10); // 50-110
+    const pulse = getRandomInt(THRESHOLDS.pulse.min - 10, THRESHOLDS.pulse.max + 10); // 50-110
+    const systolic = getRandomInt(THRESHOLDS.systolic.min - 10, THRESHOLDS.systolic.max + 10); // 80-150
+    const diastolic = getRandomInt(THRESHOLDS.diastolic.min - 10, THRESHOLDS.diastolic.max + 10); // 50-100
 
     return {
         heartRate,

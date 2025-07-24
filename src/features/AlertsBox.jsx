@@ -1,18 +1,20 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { checkVitalsStatus } from '../utils/thresholds';
+import globalStyles from '../styles/global.module.css';
+import styles from '../styles/AlertsBox.module.css';
 
 function AlertsBox() {
-    const { heartRate, bloodPressure, pulse } = useSelector(state => state.vitals);
-    const alerts = checkVitalsStatus({ heartRate, bloodPressure, pulse });
+  const alerts = useSelector(state => state.alerts.list);
+  const hasAlerts = alerts.length > 0;
+  const boxClass = `${styles.alertBox} ${globalStyles.fade} ${hasAlerts ? globalStyles.visible : globalStyles.hidden}`;
 
-    if (alerts.length === 0) return null;
+  if (!hasAlerts) return null;
 
-    return (
-    <div>
+  return (
+    <div className={boxClass}>
       <strong>Alerts:</strong>
       <ul>
-        {alerts.map((alert, idx) => <li key={idx}>{alert}</li>)}
+        {alerts.map((alert) => <li key={alert}>{alert}</li>)}
       </ul>
     </div>
   );

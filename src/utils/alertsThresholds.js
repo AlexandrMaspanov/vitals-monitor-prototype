@@ -1,9 +1,4 @@
-export const THRESHOLDS = {
-    heartRate: { min: 60, max: 100 },
-    pulse: { min: 60, max: 100 },
-    systolic: { max: 140 },
-    diastolic: { max: 90 }
-};
+import THRESHOLDS from '../constants/thresholds';
 
 export function checkVitalsStatus({ heartRate, pulse, bloodPressure }) {
     if (!bloodPressure) return [];
@@ -21,6 +16,14 @@ export function checkVitalsStatus({ heartRate, pulse, bloodPressure }) {
 
     if (sys > THRESHOLDS.systolic.max || dia > THRESHOLDS.diastolic.max) {
         alerts.push('High blood pressure');
+    }
+
+    if (sys < THRESHOLDS.systolic.min) {
+        alerts.push ('Low systolic pressure');
+    }
+
+    if (dia < THRESHOLDS.diastolic.min) {
+        alerts.push ('Low diastolic pressure');
     }
 
     return alerts;
