@@ -1,7 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
+import vitalsReducer from '../slices/vitalsSlice';
 
 export const store = configureStore({
     reducer: {
-        // slices will be added here later
+        vitals: vitalsReducer,
     },
 });
