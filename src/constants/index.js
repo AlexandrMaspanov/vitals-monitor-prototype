@@ -1,2 +1,2 @@
 export { default as ICON_MAP } from './iconMap';
-export { default as THRESHOLDS } from './thresholds';
+export { default as ALERT_CONFIG } from './alertConfig';

@@ -1,17 +1,17 @@
-import THRESHOLDS from '../constants/thresholds';
+import ALERT_CONFIG from '../constants/alertConfig';
 
 export function checkVitalsStatus({ heartRate, pulse, bloodPressure }) {
     const alerts = [];
 
     if (heartRate && typeof heartRate === 'number') {
-        if (heartRate < THRESHOLDS.heartRate.min) {
+        if (heartRate < ALERT_CONFIG.heartRate.threshold.min) {
             alerts.push({
                 type: 'low',
                 field: 'heartRate',
                 message: 'Low heart rate',
             })
         }
-        if (heartRate > THRESHOLDS.heartRate.max) {
+        if (heartRate > ALERT_CONFIG.heartRate.threshold.max) {
             alerts.push({
                 type: 'high',
                 field: 'heartRate',
@@ -21,14 +21,14 @@ export function checkVitalsStatus({ heartRate, pulse, bloodPressure }) {
     }
 
     if (pulse && typeof pulse === 'number') {
-        if (pulse < THRESHOLDS.pulse.min) {
+        if (pulse < ALERT_CONFIG.pulse.threshold.min) {
             alerts.push({
                 type: 'low',
                 field: 'pulse',
                 message: 'Low pulse rate',
             });
         }
-        if (pulse > THRESHOLDS.pulse.max) {
+        if (pulse > ALERT_CONFIG.pulse.threshold.max) {
             alerts.push({
                 type: 'high',
                 field: 'pulse',
@@ -40,7 +40,7 @@ export function checkVitalsStatus({ heartRate, pulse, bloodPressure }) {
     if (bloodPressure && typeof bloodPressure === 'string') {
         const [sys, dia] = bloodPressure.split('/').map(Number);
 
-        if ((sys && sys > THRESHOLDS.systolic.max) || (dia && dia > THRESHOLDS.diastolic.max)) {
+        if ((sys && sys > ALERT_CONFIG.systolic.threshold.max) || (dia && dia > ALERT_CONFIG.diastolic.threshold.max)) {
             alerts.push({
                 type: 'high',
                 field: 'bloodPressure',
@@ -48,7 +48,7 @@ export function checkVitalsStatus({ heartRate, pulse, bloodPressure }) {
             });
         }
 
-        if (sys && sys < THRESHOLDS.systolic.min) {
+        if (sys && sys < ALERT_CONFIG.systolic.threshold.min) {
             alerts.push({
                 type: 'low',
                 field: 'systolic',
@@ -56,7 +56,7 @@ export function checkVitalsStatus({ heartRate, pulse, bloodPressure }) {
             });
         }
 
-        if (dia && dia < THRESHOLDS.diastolic.min) {
+        if (dia && dia < ALERT_CONFIG.diastolic.threshold.min) {
             alerts.push({
                 type: 'low',
                 field: 'diastolic',

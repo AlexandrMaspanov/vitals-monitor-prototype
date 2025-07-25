@@ -4,7 +4,7 @@ import { startVitalsMockStream } from './services/mockVitalsStream';
 import { checkVitalsStatus } from './utils/vitalsStatus';
 import { setAlerts } from './slices/alertsSlice';
 import VitalsDashboard from './features/VitalsDashboard';
-import AlertsBox from './features/AlertsBox';
+import AlertsBox from './features/alerts/AlertsBox';
 // import './App.css';
 
 function App() {

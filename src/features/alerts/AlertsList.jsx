@@ -1,7 +1,7 @@
 import React from 'react';
 import { memo } from 'react';
-import { ICON_MAP } from '../constants';
-import styles from '../styles/AlertsList.module.css';
+import { ICON_MAP } from '../../constants';
+import styles from '../../styles/AlertsList.module.css';
 
 const AlertsList = ({ alerts }) => {
     return (
