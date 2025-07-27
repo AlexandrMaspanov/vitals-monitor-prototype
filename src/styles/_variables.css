@@ -1,0 +1,56 @@
+:root {
+    /* Цвета */
+    --color-bg: #ffffff;
+    --color-text: #222222;
+    --color-primary: #007aff;
+    --color-accent: #ff3366;
+    --color-border: #e0e0e0;
+    --color-focus: #007aff;
+    --color-disabled: #999999;
+
+     /* Шрифты и типографика */
+    --font-base: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-size: 1rem;          /* базовый шрифт: 16px */
+    --line-height: 1.5;
+    --font-code: 'Courier New', Courier, monospace;
+
+    /* Spacing - микросетка */
+    --space-xxs: 0.25rem;       /* 4px */
+    --space-xs: 0.5rem;         /* 8px */
+    --space-sm: 0.75rem;        /* 12px */
+    --space-md: 1rem;           /* 16px */
+    --space-lg: 1.5rem;         /* 24px */
+    --space-xl: 2rem;           /* 32px */
+
+    /* Контейнер */
+    --container-max-width: 600px;
+
+    /* Радиусы и границы */
+    --border-radius: 0.25rem;
+
+    /* Состояния / фокус */
+    --outline-width: 2px;
+    --outline-offset: var(--space-xxs);
+
+    /* Анимация и переходы */
+    --transition-fast: 150ms ease-in-out;
+    --transition-slow: 300ms ease-in-out;
+
+    /* Alerts */
+    --alert-padding: var(--space-md);
+    --alert-radius: 0.5rem;
+    --color-alert-bg: #f44336;
+    --color-alert-text: #ffffff;
+
+    --alert-high-bg: #ffe0e0;
+    --alert-high-text: #b20000;
+
+    --alert-low-bg: #d0e9ff;
+    --alert-low-text: #005288;
+
+    --alert-normal-bg: #f2f2f2;
+    --alert-normal-text: #333;
+
+    /* Icons */
+    --icon-color: #333;
+}

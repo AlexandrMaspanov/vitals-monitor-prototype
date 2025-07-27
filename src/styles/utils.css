@@ -1,0 +1,51 @@
+/* Полная ширина */
+.full-width {
+    width: 100%;
+}
+
+/* Центрирование текста */
+.text-center {
+    text-align: center;
+}
+
+/* Скрытие от визуального слоя, но доступность для скринридера */
+.visually-hidden,
+.sr-only {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Отключение pointer-событий */
+.no-pointer {
+    pointer-events: none;
+}
+
+/* Предотвращение переноса строк */
+.nowrap {
+    white-space: nowrap;
+}
+
+/* Flex grow */
+.flex-grow {
+    flex-grow: 1;
+}
+
+/* Удаление outline */
+.no-outline:focus {
+    outline: none;
+}
+
+/* Motion safe (если пользователь отключил анимации) */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}

@@ -4,8 +4,8 @@ export const validateAlertConfig = (metricKey, config) => {
     }
 
     const {
-        label, unit, threshold, severityScale,
-        isSuppressedAtNight, colors
+        label, unit, threshold,
+        severityScale, colors
     } = config;
 
     if (typeof label !== 'string') {
@@ -33,10 +33,6 @@ export const validateAlertConfig = (metricKey, config) => {
         typeof severityScale.stepUp !== 'number' ||
         typeof severityScale.stepDown !== 'number') {
         throw new Error(`Invalid severityScale in config for "${metricKey}"`);
-    }
-
-    if (typeof isSuppressedAtNight !== 'boolean') {
-        throw new Error(`Invalid "isSuppressedAtNight" in config for "${metricKey}"`);
     }
 
     if (!colors || typeof colors !== 'object') {

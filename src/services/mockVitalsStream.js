@@ -13,14 +13,15 @@ function generateVitals() {
     return {
         heartRate,
         pulse,
-        bloodPressure: `${systolic}/${diastolic}`,
+        bloodPressure: {systolic, diastolic},
         timestamp: new Date().toISOString()
     };
 }
 
 // Starting the update cycle
-export function startVitalsMockStream(interval = 2000) {
+export function startVitalsMockStream(interval = 2 * 1000) {
     setInterval(() => {
+    // setTimeout(() => {
         const vitals = generateVitals();
         store.dispatch(updateVitals(vitals));
     }, interval);

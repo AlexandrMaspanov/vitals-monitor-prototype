@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import AlertsList from './AlertsList';
-import globalStyles from '../../styles/global.module.css';
-import styles from '../../styles/AlertsBox.module.css';
+import AlertsList from '../alertsList/AlertsList';
+import globalStyles from '../../../../styles/global.module.css';
+import styles from './AlertsBox.module.css';
 
 function AlertsBox() {
   const hasAlerts = useSelector(state => state.alerts.hasAlerts);

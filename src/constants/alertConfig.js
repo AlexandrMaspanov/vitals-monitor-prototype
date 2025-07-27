@@ -13,12 +13,11 @@ const ALERT_CONFIG = {
         precision: 0,
         severityScale: {
             enabled: true,
-            stepUp: 5,
-            stepDown: 2,
+            stepUp: 1, //5,
+            stepDown: 1, //2,
             max: 125,
             min: 40
         },
-        isSuppressedAtNight: false,
         colors: DEFAULT_COLORS,
     },
     pulse: {
@@ -30,12 +29,11 @@ const ALERT_CONFIG = {
         precision: 0,
         severityScale: {
             enabled: true,
-            stepUp: 5,
-            stepDown: 2,
+            stepUp: 1, //5,
+            stepDown: 1, //2,
             max: 125,
             min: 40
         },
-        isSuppressedAtNight: false,
         colors: DEFAULT_COLORS,
     },
     systolic: {
@@ -47,12 +45,11 @@ const ALERT_CONFIG = {
         precision: 0,
         severityScale: {
             enabled: true,
-            stepUp: 5,
-            stepDown: 2,
+            stepUp: 1, //5,
+            stepDown: 1, //2,
             max: 165,
             min: 70
         },
-        isSuppressedAtNight: false,
         colors: DEFAULT_COLORS,
     },
     diastolic: {
@@ -64,12 +61,11 @@ const ALERT_CONFIG = {
         precision: 0,
         severityScale: {
             enabled: true,
-            stepUp: 5,
-            stepDown: 2,
+            stepUp: 1, //5,
+            stepDown: 1, //2,
             max: 165,
             min: 70
         },
-        isSuppressedAtNight: false,
         colors: DEFAULT_COLORS,
     }
 };

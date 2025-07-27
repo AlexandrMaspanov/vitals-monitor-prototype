@@ -1,0 +1,85 @@
+/* Вертикальный layout со стабильным расстоянием */
+.stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+/* Горизонтальный layout, например для кнопок или иконок */
+.inline {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Централизованный контейнер */
+.container {
+    max-width: var(--container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+}
+
+.Box {
+    display: block;
+}
+
+.Flex {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.Flex.vertical {
+    flex-direction: column;
+}
+
+.Flex.centered {
+    justify-content: center;
+    align-items: center;
+}
+
+.Flex.gap-xs {
+    gap: 4px;
+}
+
+.Flex.gap-sm {
+    gap: 8px;
+}
+
+.Flex.gap-md {
+    gap: 16px;
+}
+
+.Flex.gap-lg {
+    gap: 24px;
+}
+
+.Grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 16px;
+}
+
+.Grid.cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.Grid.cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.Grid.cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.Grid.gap-sm {
+    gap: 8px;
+}
+
+.Grid.gap-lg {
+    gap: 24px;
+}

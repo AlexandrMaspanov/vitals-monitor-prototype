@@ -2,19 +2,18 @@ import { ALERT_CONFIG } from '../constants';
 import { calculateColor } from './colorUtils';
 import { validateAlertConfig } from './validateAlertConfig';
 
-export const createAlert = (metricKey, current, previous, isNightMode = false) => {
+export const createAlert = (metricKey, current) => {
     const config = ALERT_CONFIG[metricKey];
     if (!config) return null;
 
     validateAlertConfig(metricKey, config);
-    if (current == null || previous == null) return null;
+    if (current == null) return null;
 
-    const { label, unit, threshold, severityScale, isSuppressedAtNight, colors } = config;
-    if (isNightMode && isSuppressedAtNight) return null;
+    const { label, unit, threshold, severityScale, colors } = config;
 
     const direction =
         current > threshold.max ? 'up' :
-        current < threshold.min ? 'down' : null;
+            current < threshold.min ? 'down' : null;
 
     if (!direction) return null;
 
@@ -46,7 +45,6 @@ export const createAlert = (metricKey, current, previous, isNightMode = false) =
         label,
         unit,
         current,
-        previous,
         threshold,
         deviation,
         direction,
@@ -56,10 +54,35 @@ export const createAlert = (metricKey, current, previous, isNightMode = false) =
     };
 }
 
-export const generateAlerts = (vitals, previousVitals, isNightMode) => {
-    return Object.keys(vitals)
-        .map(field =>
-            createAlert(field, vitals[field], previousVitals[field], isNightMode)
-        )
-        .filter(Boolean);
+export const generateAlerts = (vitals) => {
+    const alerts = [];
+
+    const recurse = (metricKey, value) => {
+        if (value === null || value === undefined) return;
+
+        if (typeof value === 'object' && !Array.isArray(value)) {
+            Object.entries(value).forEach(([subKey, subValue]) => {
+                recurse(subKey, subValue);
+            });
+        } else {
+            const alert = createAlert(metricKey, value);
+            if (alert) alerts.push(alert);
+        }
+    };
+
+    Object.entries(vitals).forEach(([metricKey, value]) => {
+        recurse(metricKey, value);
+    });
+
+    return alerts;
 }
+
+export const formatAlertMessage = (alert) => {
+    const { label, current, unit, direction, deviation } = alert;
+
+    if (!direction) return null;
+
+    const dirArrow = direction === 'up' ? '↑' : '↓';
+
+    return `${label} ${current} ${unit} - ${direction === 'up' ? 'above' : 'below'} ${dirArrow} normal by ${deviation}`;
+};

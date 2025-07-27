@@ -2,7 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     heartRate: null,
-    bloodPressure: null,
+    bloodPressure: {
+        systolic: null,
+        diastolic: null,
+    },
     pulse: null,
     timestamp: null,
 };
@@ -12,9 +15,12 @@ const vitalsSlice = createSlice({
     initialState,
     reducers: {
         updateVitals: (state, action) => {
-            const { heartRate, bloodPressure, pulse, timestamp } = action.payload;
+            const { heartRate, bloodPressure = {}, pulse, timestamp } = action.payload;
+            const { systolic = null, diastolic = null } = bloodPressure;
+
             state.heartRate = heartRate;
-            state.bloodPressure = bloodPressure;
+            state.bloodPressure.systolic = systolic;
+            state.bloodPressure.diastolic = diastolic;
             state.pulse = pulse;
             state.timestamp = timestamp;
         }
