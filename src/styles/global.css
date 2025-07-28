@@ -1,0 +1,34 @@
+.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.fade {
+    transition: opacity 0.3s ease;
+}
+
+/* Types of alerts */
+.high {
+    background-color: var(--alert-high-bg);
+    color: var(--alert-high-text);
+    --icon-color: #ed1b24;
+}
+
+.low {
+    background-color: var(--alert-low-bg);
+    color: var(--alert-low-text);
+    --icon-color: #1b5aed;
+}
+
+.normal {
+    background-color: var(--alert-normal-bg);
+    color: var(--alert-normal-text);
+    --icon-color: #333;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ICON_MAP } from '../../../../constants';
-import styles from './AlertsItem.module.css';
 import { formatAlertMessage } from '../../../../utils/alertsUtils';
+import styles from './AlertsItem.module.css';
 
 const AlertItem = ({ alert }) => {
   const IconComponent = ICON_MAP[alert.metricKey];

@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useSelector } from "react-redux";
+import { getVitalsList } from '../../../../utils/vitalsUtils';
 import VitalCard from '../vitalCard/VitalCard';
 import styles from './VitalsBox.module.css';
 
 function VitalsBox() {
-    const { heartRate, bloodPressure, pulse, timestamp } = useSelector(state => state.vitals);
+    const vitals = useSelector(state => state.vitals);
+    const vitalsList = useMemo(() => getVitalsList(), []) || [];
 
     return (
         <div className={styles.vitalsBox}>
-            <VitalCard label="Heart Rate" value={heartRate} unit="bpm" />
-            <VitalCard label="Blood Pressure" value={bloodPressure} unit="mmHg" />
-            <VitalCard label="Pulse" value={pulse} unit="bpm" />
-            <VitalCard label="Timestamp" value={timestamp ? new Date(timestamp).toLocaleTimeString() : null} unit="" />
+            {vitalsList.map(vital => (
+                <VitalCard
+                    key={vital.key}
+                    value={vitals?.[vital.key]}
+                    label={vital.label}
+                    unit={vital.unit}
+                    threshold={vital.threshold}
+                />
+            ))}
         </div>
     );
 }

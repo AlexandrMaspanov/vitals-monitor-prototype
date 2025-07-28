@@ -1,39 +1,37 @@
-import { ALERT_CONFIG } from '../constants';
-import { calculateColor } from './colorUtils';
-import { validateAlertConfig } from './validateAlertConfig';
+import { ALERTS_CONFIG } from '../constants';
 
-export const createAlert = (metricKey, current) => {
-    const config = ALERT_CONFIG[metricKey];
+export const createAlert = (metricKey, value) => {
+    const config = ALERTS_CONFIG[metricKey];
     if (!config) return null;
 
-    validateAlertConfig(metricKey, config);
-    if (current == null) return null;
+    if (value == null) return null;
 
-    const { label, unit, threshold, severityScale, colors } = config;
+    const { label, unit, threshold } = config;
 
-    const direction =
-        current > threshold.max ? 'up' :
-            current < threshold.min ? 'down' : null;
+    const min = (typeof threshold?.min === 'number') ? threshold.min : null;
+    const max = (typeof threshold?.max === 'number') ? threshold.max : null;
+
+    if (!max || !min) return null;
+
+    const direction = (value == null)
+        ? null
+        : max && value > max
+            ? 'high'
+            : min && value < min
+                ? 'low'
+                : null;
 
     if (!direction) return null;
 
-    let level = 0;
     let deviation = 0;
-    let maxLevel = 0;
 
-    if (direction === 'up') {
-        maxLevel = Math.floor((severityScale.max - threshold.max) / severityScale.stepUp);
-        deviation = current - threshold.max;
-        level = Math.min(maxLevel, Math.floor(deviation / severityScale.stepUp));
+    if (direction === 'high') {
+        deviation = value - max;
     }
 
-    if (direction === 'down') {
-        maxLevel = Math.floor((threshold.min - severityScale.min) / severityScale.stepDown);
-        deviation = threshold.min - current;
-        level = Math.min(maxLevel, Math.floor(deviation / severityScale.stepDown));
+    if (direction === 'low') {
+        deviation = min - value;
     }
-
-    const color = calculateColor(level, maxLevel, colors[direction].base, colors[direction].extreme);
 
     const timestamp = Date.now();
 
@@ -44,12 +42,10 @@ export const createAlert = (metricKey, current) => {
         metricKey,
         label,
         unit,
-        current,
+        value,
         threshold,
         deviation,
         direction,
-        level,
-        color,
         timestamp,
     };
 }
@@ -78,11 +74,11 @@ export const generateAlerts = (vitals) => {
 }
 
 export const formatAlertMessage = (alert) => {
-    const { label, current, unit, direction, deviation } = alert;
+    const { label, value, unit, direction, deviation } = alert;
 
     if (!direction) return null;
 
-    const dirArrow = direction === 'up' ? '↑' : '↓';
+    const dirArrow = direction === 'high' ? '↑' : '↓';
 
-    return `${label} ${current} ${unit} - ${direction === 'up' ? 'above' : 'below'} ${dirArrow} normal by ${deviation}`;
+    return `${label} ${value} ${unit} - ${direction === 'high' ? 'above' : 'below'} ${dirArrow} normal by ${deviation}`;
 };

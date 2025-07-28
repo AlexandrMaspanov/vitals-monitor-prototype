@@ -13,28 +13,9 @@
     font-weight: 500;
 
     border-left: 4px solid var(--alert-color);
-    box-shadow: 0 0 4px rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 
     animation: slideFade 0.3s ease-in;
-}
-
-/* Types of alerts */
-.high {
-    background-color: var(--alert-high-bg);
-    color: var(--alert-high-text);
-    --icon-color: #ed1b24;
-}
-
-.low {
-    background-color: var(--alert-low-bg);
-    color: var(--alert-low-text);
-    --icon-color: #1b5aed;
-}
-
-.normal {
-    background-color: var(--alert-normal-bg);
-    color: var(--alert-normal-text);
-    --icon-color: #333;
 }
 
 /* Animation */

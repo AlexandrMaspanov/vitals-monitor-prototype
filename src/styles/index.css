@@ -1,5 +1,6 @@
 @import 'normalize.css';
 @import './_base.css';
 @import './_variables.css';
+@import './global.css';
 @import './layout.css';
 @import './utils.css';

@@ -1,13 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import AlertsList from '../alertsList/AlertsList';
-import globalStyles from '../../../../styles/global.module.css';
 import styles from './AlertsBox.module.css';
 
 function AlertsBox() {
   const hasAlerts = useSelector(state => state.alerts.hasAlerts);
   const alerts = useSelector(state => state.alerts.list);
-  const boxClass = `${styles.alertBox} ${globalStyles.fade} ${hasAlerts ? globalStyles.visible : globalStyles.hidden}`;
+  const boxClass = `${styles.alertBox} fade ${hasAlerts ? 'visible' : 'hidden'}`;
 
   if (!hasAlerts) return null;
 

@@ -1,2 +1,3 @@
 export { default as ICON_MAP } from './iconMap';
-export { default as ALERT_CONFIG } from './alertConfig';
+export { default as VITALS_CONFIG } from './vitalsConfig';
+export { default as ALERTS_CONFIG } from './alertsConfig';

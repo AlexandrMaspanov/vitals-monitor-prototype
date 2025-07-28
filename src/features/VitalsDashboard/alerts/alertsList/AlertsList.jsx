@@ -1,23 +1,18 @@
-import React from 'react';
-import { memo } from 'react';
-import styles from './AlertsList.module.css';
+import React, { memo } from 'react';
 import AlertItem from '../alertItem/AlertItem';
+import styles from './AlertsList.module.css';
 
 const AlertsList = ({ alerts }) => {
     return (
         <ul className={styles.list}>
-            {alerts.map(alert => {
-                const {id, metricKey, label, unit, current, threshold, deviation, direction, level, color, timestamp} = alert;
-
-                return (
-                    <li
-                        key={id}
-                        className={`${styles.item}`} // ${styles[type]}`}
-                    >
-                        <AlertItem alert={alert} />
-                    </li>
-                );
-            })}
+            {alerts.map(alert => (
+                <li
+                    key={alert.id}
+                    className={`${styles.item} ${alert.direction}`}
+                >
+                    <AlertItem alert={alert} />
+                </li>
+            ))}
         </ul>
     );
 }
