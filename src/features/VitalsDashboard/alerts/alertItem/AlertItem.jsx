@@ -7,14 +7,14 @@ const AlertItem = ({ alert }) => {
   const IconComponent = ICON_MAP[alert.metricKey];
 
   return (
-    <>
+    <div className={styles.item}>
       {IconComponent ? (
         <IconComponent className={styles.icon} />
       ) : (
         <span className={styles.icon}>⚠️</span>
       )}
       {formatAlertMessage(alert)}
-    </>
+    </div>
   );
 }
 

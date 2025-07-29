@@ -1,29 +1,29 @@
 .card {
-    padding: 12px 16px;
-    margin: 8px 0;
-    border-radius: 6px;
-    background-color: #eee;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: sans-serif;
+    margin: var(--space-xs) 0;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-neutral-subtle);
+    box-shadow: var(--shadow-low);
+    transition: background-color var(--transition-slow);
+    font-family: var(--font-family-base);
     text-align: center;
 }
 
 .label {
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
 }
 
 .value {
-    font-size: 2.5rem;
-    font-weight: 500;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-medium);
 }
 
 .unit {
-    font-size: 1.5rem;
-    margin-left: 4px;
+    margin-left: var(--space-xxs);
+    font-size: var(--font-size-lg);
 }
 
 .thresholds {

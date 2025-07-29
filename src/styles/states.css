@@ -1,0 +1,69 @@
+/* Disabled */
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+  color: var(--color-disabled);
+  background-color: var(--color-disabled-bg);
+  box-shadow: none;
+}
+
+/* Hovered */
+button:hover,
+input:hover,
+select:hover,
+textarea:hover {
+  background-color: var(--color-hover-bg);
+  color: var(--color-hover-text);
+  border-color: var(--color-hover-border);
+  transition: var(--transition-all-fast);
+}
+
+/* Active */
+button:active,
+input:active,
+select:active,
+textarea:active {
+  background-color: var(--color-active-bg);
+  color: var(--color-active-text);
+  border-color: var(--color-active-border);
+  box-shadow: var(--shadow-inset);
+}
+
+/* Selected */
+option:checked,
+input[type="radio"]:checked,
+input[type="checkbox"]:checked {
+  background-color: var(--color-selected-bg);
+  color: var(--color-selected-text);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Focused */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: var(--outline-width) solid var(--color-focus-border);
+  outline-offset: var(--outline-offset);
+  background-color: var(--color-focus-bg);
+}
+
+/* Invalid */
+input:invalid,
+select:invalid,
+textarea:invalid {
+  background-color: var(--color-error-bg);
+  border-color: var(--color-error);
+  color: var(--color-error-text);
+}
+
+/* Read-only */
+input[readonly],
+textarea[readonly] {
+  background-color: var(--color-muted-bg);
+  color: var(--color-muted-text);
+  border: 1px dashed var(--color-border-default);
+}

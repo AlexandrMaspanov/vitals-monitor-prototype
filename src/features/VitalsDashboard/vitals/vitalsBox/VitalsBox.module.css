@@ -1,9 +1,15 @@
 .vitalsBox {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 16px;
-    padding: 24px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width), 1fr));
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background-color: var(--color-bg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-base);
+}
+
+@media (max-width: var(--breakpoint-mobile)) {
+    .vitalsBox {
+        grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width-mobile), 1fr));
+    }
 }

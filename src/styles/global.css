@@ -16,19 +16,19 @@
 
 /* Types of alerts */
 .high {
-    background-color: var(--alert-high-bg);
+    background: var(--alert-high-bg);
     color: var(--alert-high-text);
     --icon-color: #ed1b24;
 }
 
 .low {
-    background-color: var(--alert-low-bg);
+    background: var(--alert-low-bg);
     color: var(--alert-low-text);
     --icon-color: #1b5aed;
 }
 
 .normal {
-    background-color: var(--alert-normal-bg);
+    background: var(--alert-normal-bg);
     color: var(--alert-normal-text);
     --icon-color: #333;
 }

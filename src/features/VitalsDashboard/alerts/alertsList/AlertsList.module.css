@@ -7,15 +7,12 @@
 .item {
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    font-weight: 500;
-
-    border-left: 4px solid var(--alert-color);
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
-
-    animation: slideFade 0.3s ease-in;
+    margin-bottom: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-medium);
+    box-shadow: var(--shadow-base);
+    animation: slideFade var(--transition-fast);
 }
 
 /* Animation */

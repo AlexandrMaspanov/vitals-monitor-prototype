@@ -9,7 +9,7 @@
 html {
   box-sizing: border-box;
   font-family: var(--font-base);
-  font-size: 16px;
+  font-size: var(--font-size-base);
   line-height: var(--line-height);
   background-color: var(--color-bg);
   color: var(--color-text);
@@ -80,4 +80,10 @@ kbd {
 :focus {
   outline: var(--outline-width) solid var(--color-focus);
   outline-offset: var(--outline-offset);
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: var(--font-size-mobile-base);
+  }
 }

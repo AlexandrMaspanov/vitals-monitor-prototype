@@ -1,13 +1,12 @@
-@import '../../../../styles/_variables.css';
-
 .alertBox {
-    padding: var(--alert-padding);
-    border-radius: var(--alert-radius);
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
     background-color: var(--color-alert-bg);
     color: var(--color-alert-text);
+    transition: opacity var(--transition-fast);
 }
 
 .alertBox ul {
-    margin: 0.5rem 0;
-    padding-left: 1.25rem;
+    margin: var(--space-sm) 0;
+    padding-left: var(--space-lg);
 }

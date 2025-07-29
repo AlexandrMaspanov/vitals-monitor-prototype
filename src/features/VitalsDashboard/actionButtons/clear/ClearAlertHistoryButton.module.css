@@ -1,0 +1,18 @@
+.clearButton {
+    padding: var(--space-md) var(--space-lg);
+    border: 1px solid var(--border-color-default);
+    border-radius: var(--radius-md);
+    background-color: var(--bg-color-default);;
+    box-shadow: var(--shadow-elevated);
+    color: var(--text-color-button);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.clearButton:disabled {
+    color: #222;
+    box-shadow: none;
+    cursor: not-allowed;
+}
