@@ -6,7 +6,18 @@
     transition: opacity var(--transition-fast);
 }
 
-.alertBox ul {
-    margin: var(--space-sm) 0;
-    padding-left: var(--space-lg);
+@media (max-width: 1200px) {
+
+}
+
+@media (max-width: 1024px) {
+
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 600px) {
+
 }

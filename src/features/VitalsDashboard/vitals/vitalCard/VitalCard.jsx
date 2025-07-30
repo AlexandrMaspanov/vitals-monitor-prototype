@@ -22,16 +22,16 @@ const VitalCard = ({ label, unit, threshold, value }) => {
     }
 
     return (
-        <div className={`${styles.card} ${direction} Flex vertical`}>
-            <p><strong className={styles.label}>{label}</strong></p>
-            <p>
-                <span
+        <div className={`${styles.card} ${direction} Flex vertical gap-sm`}>
+            <p className={styles.label}><strong>{label}</strong></p>
+            <div className={styles.vitalValue}>
+                <p
                     className={styles.value}
                 >
                     {formatValue(value)}
-                </span>
-                <span className={styles.unit}>{unit}</span>
-            </p>
+                </p>
+                <p className={styles.unit}>{unit}</p>
+            </div>
             <div className={styles.thresholds}>
                 {typeof min === 'number' && typeof max === 'number' ? (
                     <>

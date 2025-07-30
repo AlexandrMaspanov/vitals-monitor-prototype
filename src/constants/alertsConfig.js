@@ -5,10 +5,6 @@ const ALERTS_CONFIG = {
         ...VITALS_CONFIG.heartRate,
         order: 1,
     },
-    pulse: {
-        ...VITALS_CONFIG.pulse,
-        order: 2,
-    },
     systolic: {
         ...VITALS_CONFIG.systolic,
         order: 3,
@@ -16,7 +12,11 @@ const ALERTS_CONFIG = {
     diastolic: {
         ...VITALS_CONFIG.diastolic,
         order: 4,
-    }
+    },
+    pulse: {
+        ...VITALS_CONFIG.pulse,
+        order: 2,
+    },
 };
 
 export default ALERTS_CONFIG;

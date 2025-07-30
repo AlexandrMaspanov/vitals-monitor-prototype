@@ -1,6 +1,6 @@
 .list {
-    margin: 0;
-    padding: 0;
+    margin: var(--space-sm) 0;
+    padding-left: var(--space-lg);
     list-style: none;
 }
 
@@ -25,5 +25,23 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 1200px) {
+
+}
+
+@media (max-width: 1024px) {
+
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 600px) {
+    .list {
+        padding-left: 0;
     }
 }

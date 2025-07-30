@@ -4,11 +4,6 @@ const VITALS_CONFIG = {
         unit: 'bpm',
         threshold: { min: 60, max: 100 },
     },
-    pulse: {
-        label: 'Pulse',
-        unit: 'bpm',
-        threshold: { min: 60, max: 100 },
-    },
     systolic: {
         label: 'Systolic Pressure',
         unit: 'mmHg',
@@ -19,11 +14,16 @@ const VITALS_CONFIG = {
         unit: 'mmHg',
         threshold: { min: 60, max: 90 },
     },
+    pulse: {
+        label: 'Pulse',
+        unit: 'bpm',
+        threshold: { min: 60, max: 100 },
+    },
     timestamp: {
         label: 'Timestamp',
         unit: '',
         threshold: { },
-    }
+    },
 };
 
 export default VITALS_CONFIG;

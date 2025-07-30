@@ -4,10 +4,10 @@ import BloodPressureIcon from '../assets/icons/blood-pressure.svg?react';
 
 const ICON_MAP = {
     heartRate: HeartRateIcon,
-    pulse: PulseIcon,
     bloodPressure: BloodPressureIcon,
     systolic: BloodPressureIcon,
     diastolic: BloodPressureIcon,
+    pulse: PulseIcon,
 };
 
 export default ICON_MAP;

@@ -1,5 +1,5 @@
 .item {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     color: var(--color-text);
 }
@@ -10,4 +10,22 @@
     margin-right: 0.5rem;
     vertical-align: middle;
     color: var(--icon-color);
+}
+
+@media (max-width: 1200px) {
+
+}
+
+@media (max-width: 1024px) {
+
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 600px) {
+    .item {
+        flex-direction: column;
+    }
 }

@@ -5,25 +5,25 @@ export const getVitalsList = () => {
 
     for (const [key, config] of Object.entries(VITALS_CONFIG)) {
         if (key === 'systolic' || key === 'diastolic') {
-            continue;
+            if (!list.some(item => item.key === 'bloodPressure')) {
+                const systolic = VITALS_CONFIG.systolic;
+                const diastolic = VITALS_CONFIG.diastolic;
+
+                if (systolic && diastolic) {
+                    const min = { systolic: systolic.threshold.min, diastolic: diastolic.threshold.min };
+                    const max = { systolic: systolic.threshold.max, diastolic: diastolic.threshold.max };
+
+                    list.push({
+                        key: 'bloodPressure',
+                        label: 'Blood Pressure',
+                        unit: 'mmHg',
+                        threshold: { min, max },
+                    });
+                }
+            }
+        } else {
+            list.push({ key, ...config });
         }
-
-        list.push({ key, ...config });
-    }
-
-    const systolic = VITALS_CONFIG.systolic;
-    const diastolic = VITALS_CONFIG.diastolic;
-
-    if (systolic && diastolic) {
-        const min = {systolic: systolic.threshold.min, diastolic: diastolic.threshold.min};
-        const max = {systolic: systolic.threshold.max, diastolic: diastolic.threshold.max};
-
-        list.push({
-            key: 'bloodPressure',
-            label: 'Blood Pressure',
-            unit: 'mmHg',
-            threshold: { min, max },
-        });
     }
 
     return list;

@@ -8,16 +8,24 @@
     background-color: var(--color-neutral-subtle);
     box-shadow: var(--shadow-low);
     transition: background-color var(--transition-slow);
-    font-family: var(--font-family-base);
     text-align: center;
 }
 
 .label {
+    margin: 0 -10px;
+    font-size: var(--font-size-md);
     font-weight: var(--font-weight-semibold);
 }
 
+.vitalValue {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+}
+
 .value {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-xxl);
     font-weight: var(--font-weight-medium);
 }
 
@@ -30,4 +38,42 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+@media (max-width: 1200px) {
+
+}
+
+@media (max-width: 1024px) {
+    .unit {
+        font-size: var(--font-size-md);
+    }
+}
+
+@media (max-width: 768px) {
+    .label {
+        font-size: var(--font-size);
+    }
+
+    .value {
+        font-size: var(--font-size-lg);
+    }
+
+    .unit {
+        font-size: var(--font-size);
+    }
+}
+
+@media (max-width: 600px) {
+    .value {
+        font-size: var(--font-size-md);
+    }
+
+    .unit {
+        font-size: var(--font-size-sm);
+    }
+
+    .thresholds {
+        font-size: var(--font-size-sm);
+    }
 }

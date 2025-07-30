@@ -8,7 +8,7 @@
     /* Hover */
     --color-hover-bg: #f0f0f0;
     --color-hover-text: var(--color-text);
-    --color-hover-border: #bbb;
+    --color-hover-border: #bbbbbb;
 
     /* Active */
     --color-active-bg: #e6f0ff;
@@ -42,17 +42,24 @@
     --color-disabled: #999999;
 
     /* Fonts */
-    --font-base: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-family-base: Roboto, Helvetica, Arial, sans-serif;
     --font-size-base-mobile: 13px;
-    --font-size-base: 16px;
-    --font-size: 1rem;
+    --font-size-base-tablet: 14px;
+    --font-size-base-laptop: 15px;
+    --font-size-base-desktop: 16px;
     --font-size-sm: 0.75rem;
+    --font-size: 1rem;
+    --font-size-md: 1.25rem;
     --font-size-lg: 1.5rem;
-    --font-size-xl: 2.5rem;
+    --font-size-xl: 2.0rem;
+    --font-size-xxl: 2.5rem;
+    --font-weight-regular: 400;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
+    --font-weight-bold: 700;
     /* базовый шрифт: 16px */
     --line-height: 1.5;
+    --line-height-sm: 1.25;
     --font-code: 'Courier New', Courier, monospace;
 
     /* Spacing - микросетка */
@@ -76,7 +83,9 @@
     /* Container */
     --container-max-width: 37rem;
     --card-min-width: 11rem;
-    --card-min-width-mobile: 8rem;
+    --card-min-width-laptop: 10rem;
+    --card-min-width-tablet: 9rem;
+    --card-min-width-mobile: 5rem;
 
     /* Radiuses and borders */
     --border-radius: 0.25rem;

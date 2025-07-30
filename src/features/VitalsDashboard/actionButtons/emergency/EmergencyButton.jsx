@@ -22,17 +22,17 @@ const EmergencyButton = () => {
             notifySending();
 
             setTimeout(() => {
-                const success = Math.random() > 0.2;
+                // const success = Math.random() > 0.2;
 
-                if (success) {
+                // if (success) {
                     dispatch(sendSuccess());
                     notifySent();
-                } else {
-                    dispatch(sendFail('Network error'));
-                    notifyError();
-                }
-            }, 3000);
-        }, 2000);
+                // } else {
+                //     dispatch(sendFail('Network error'));
+                //     notifyError();
+                // }
+            }, 7000);
+        }, 2500);
     }
 
     return (

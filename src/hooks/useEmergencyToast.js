@@ -10,10 +10,10 @@ export const useEmergencyToast = () => {
         toast.success('Call in progress...', { autoClose: 2000 });
 
     const notifySending = () => {
-        toast.success(`Sending an alerts...`, { autoClose: 3000 });
+        toast.success(`Sending an alerts...`, { autoClose: 6000 });
 
         let delay = 0;
-        alerts.forEach((alert) => {
+        alerts.slice(-10).forEach((alert) => {
             delay += 500;
             setTimeout(() => {
                 const { label, value, unit, timestamp } = alert;
@@ -21,17 +21,17 @@ export const useEmergencyToast = () => {
             }, delay);
         });
 
-        setTimeout(() => {
-            dispatch(clearAllHistory());
-            toast.success('Alert history cleared');
-        }, delay + 1000);
+        // setTimeout(() => {
+        //     dispatch(clearAllHistory());
+        //     toast.success('Alert history cleared', { autoClose: 2000 });
+        // }, delay + 1000);
     };
 
     const notifySent  = () =>
-        toast.success('Alert sent', {autoClose: 4000});
+        toast.success('Alert sent', {autoClose: 6000});
 
     const notifyError = () =>
-        toast.error(`Sending error`, { autoClose: 4000 });
+        toast.error(`Sending error`, { autoClose: 3000 });
 
     return { notifyCall, notifySending, notifySent, notifyError };
 };
