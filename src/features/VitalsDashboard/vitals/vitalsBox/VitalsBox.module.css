@@ -1,43 +1,9 @@
 .vitalsBox {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width), 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-md);
     padding: var(--space-lg);
     background-color: var(--color-bg);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-base);
-}
-
-@media (max-width: 1200px) {
-
-}
-
-@media (max-width: 1024px) {
-    .vitalsBox {
-        grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width-laptop), 1fr));
-    }
-}
-
-@media (max-width: 600px) {
-    .vitalsBox {
-        grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-    }
-}
-
-@media (max-width: 426px) {
-    .vitalsBox {
-        grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
-    }
-}
-
-@media (max-width: 376px) {
-    .vitalsBox {
-        grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
-    }
-}
-
-@media (max-width: 320px) {
-    .vitalsBox {
-        grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
-    }
 }
